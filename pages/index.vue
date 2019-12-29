@@ -109,6 +109,11 @@ Vue.use(VueObserveVisibility)
 
 export default {
   components: {},
+  data () {
+    return {
+      visibilityThreshold: 0.2
+    }
+  },
   mounted () {
     let marquees = $('.marquee');
     const forwardDirection = [false, true]
@@ -181,15 +186,38 @@ export default {
     },
     visibilityChanged (isVisible, entry) {
       if (isVisible) {
+        if (entry.target.id == 'section__work') {
+           $('body').css("color", "#15557c")
+        }
+
         switch (entry.target.id) {
-          case "section__hero":
-            // alert(entry.target.id)
+          case 'section__hero':
+            $('body').css("color", "#15777c")
+            $('body').css("-webkit-text-stroke-color", "#15777c")
             break;
 
-          case "section__work":
-            // alert(entry.target.id)
+          case 'section__work':
+            $('body').css("color", "#15557c")
+            $('body').css("-webkit-text-stroke-color", "#15557c")
             break;
         
+          default:
+            break;
+        }
+      }
+
+      else if (!isVisible) {
+        switch (entry.target.id) {
+          case 'section__hero':
+            $('body').css("color", "#15557c")
+            $('body').css("-webkit-text-stroke-color", "#15557c")
+            break;
+
+          case 'section__work':
+            $('body').css("color", "#15777c")
+            $('body').css("-webkit-text-stroke-color", "#15777c")
+            break;
+            
           default:
             break;
         }
@@ -204,10 +232,10 @@ export default {
   .header,
   .outlined-text {
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
   }
 
   .header {
+    -webkit-text-stroke-color: black;
     text-transform: uppercase;
     font-size: 250px;
   }
@@ -220,11 +248,6 @@ export default {
     $main-color: #15777c;
     padding-top: 200px;
 
-    .header {
-      color: #15557c;
-      color: $main-color;
-    }
-
     .marquee {
       position: relative;
       top: 30px;
@@ -236,7 +259,7 @@ export default {
       text-transform: uppercase;
       color: transparent;
       -webkit-text-stroke-width: 1.6px;
-      -webkit-text-stroke-color: $main-color;
+      // -webkit-text-stroke-color: $main-color;
 
       .list {
         position: relative;
@@ -271,15 +294,13 @@ export default {
 
   .section__work {
     $main-color: #15557c;
-    margin-top: 200px;
+    margin-top: 250px;
     padding: 0px 20px;
-    color: #15557c;
     font-size: 80px;
     width: 86%;
 
     .text {
       padding-left: 20px;
-      -webkit-text-stroke-color: black;
       -webkit-text-stroke-width: 1px;
     }
 
@@ -288,7 +309,7 @@ export default {
       margin-bottom: 60px;
       text-transform: uppercase;
       font-size: 75px;
-      -webkit-text-stroke-color: #15557c;
+      // -webkit-text-stroke-color: $main-color;
 
       span {
         display: inline-block;
