@@ -50,10 +50,12 @@
       <div class="header">
         Work
       </div>
-      <div class="text">
-        Generally, I got better & more confident in my work.
-        I also worked on a number of interesting projects,
-        some I can publicly talk about are:
+      <div class="content">
+        <div class="text">
+          Generally, I got better & more confident in my work.
+          I also worked on a number of interesting projects,
+          some I can publicly talk about are:
+        </div>
         <div class="projects outlined-text">
           <span>
             - Gomoney early access site
@@ -62,12 +64,27 @@
             - Gomoney blog
           </span>
           <span>
-            - My potfolio redesign
+            - My portfolio redesign
           </span>
         </div>
         <div class="text">
           To all the emails & messages I got from people appreciating my work,
           it really warmed my heart.
+        </div>
+      </div>
+    </div>
+    <div
+      id="section__reading"
+      v-observe-visibility="visibilityChanged"
+    >
+      <div class="header">
+        Reading
+      </div>
+      <div class="content">
+        <div class="text">
+          I didn't read as many books as I did in 2018.
+          Two nice books I read this year are Ask The Dust by John Fante
+          & Design Is Storytelling by Ellen Lupton
         </div>
       </div>
     </div>
@@ -162,27 +179,31 @@ export default {
     },
     visibilityChanged (isVisible, entry) {
       if (isVisible) {
-        if (entry.target.id == 'section__work') {
-           $('body').css("color", "#15557c")
-        }
-
         switch (entry.target.id) {
           case 'section__hero':
             $('body').css("color", "#15777c")
             $('body').css("-webkit-text-stroke-color", "#15777c")
+            $('body').css('background-color', "#E4B0A0")
             break;
 
           case 'section__work':
             $('body').css("color", "#15557c")
             $('body').css("-webkit-text-stroke-color", "#15557c")
+            $('body').css('background-color', "#E4B0A0")
+            break;
+
+          case 'section__reading':
+            $('body').css({
+              'color': '#5660B7',
+              '-webkit-text-stroke-color': '#5660B7',
+              'background-color': '#FFD9D8'
+            })
             break;
         
           default:
             break;
         }
-      }
-
-      else if (!isVisible) {
+      }else if (!isVisible) {
         switch (entry.target.id) {
           case 'section__hero':
             $('body').css("color", "#15557c")
@@ -192,6 +213,14 @@ export default {
           case 'section__work':
             $('body').css("color", "#15777c")
             $('body').css("-webkit-text-stroke-color", "#15777c")
+            break;
+            
+          case 'section__reading':
+            $('body').css({
+              'color': '#15557c',
+              '-webkit-text-stroke-color': '#15557c',
+              'background-color': '#E4B0A0'
+            })
             break;
             
           default:
@@ -268,16 +297,22 @@ export default {
     }
   }
 
+  #section__reading,
   .section__work {
     $main-color: #15557c;
     margin-top: 250px;
     padding: 0px 20px;
     font-size: 80px;
-    width: 86%;
+    width: 92%;
+    box-sizing: border-box;
+
+    .content {
+      padding-left: 20px;
+    }
 
     .text {
-      padding-left: 20px;
       -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
     }
 
     .projects {
@@ -304,6 +339,10 @@ export default {
         }
       }
     }
+  }
+
+  .section__reading {
+    $main-color: #15557c;
   }
 }
 </style>
