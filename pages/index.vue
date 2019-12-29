@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <div class="section__hero">
+    <div
+      id="section__hero"
+      v-observe-visibility="visibilityChanged"
+      class="section__hero"
+    >
       <div class="header">
         Kolapo Oni
       </div>
@@ -62,6 +66,35 @@
         </ul>
       </div>
     </div>
+    <div
+      id="section__work"
+      v-observe-visibility="visibilityChanged"
+      class="section__work"
+    >
+      <div class="header">
+        Work
+      </div>
+      <div class="text">
+        Generally, I got better & more confident in my work.
+        I also worked on a number of interesting projects,
+        some I can publicly talk about are:
+        <div class="projects outlined-text">
+          <span>
+            - Gomoney early access site
+          </span>
+          <span>
+            - Gomoney blog
+          </span>
+          <span>
+            - My potfolio redesign
+          </span>
+        </div>
+        <div class="text">
+          To all the emails & messages I got from people appreciating my work,
+          it really warmed my heart.
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -69,6 +102,10 @@
 /* eslint semi: "error" */
 /* eslint-disable */
 import $ from 'jquery';
+import Vue from 'vue'
+import VueObserveVisibility from 'vue-observe-visibility'
+
+Vue.use(VueObserveVisibility)
 
 export default {
   components: {},
@@ -141,16 +178,42 @@ export default {
         .on ('mouseleave', function() {
           infinite.play();
         });
+    },
+    visibilityChanged (isVisible, entry) {
+      if (isVisible) {
+        switch (entry.target.id) {
+          case "section__hero":
+            // alert(entry.target.id)
+            break;
+
+          case "section__work":
+            // alert(entry.target.id)
+            break;
+        
+          default:
+            break;
+        }
       }
+    }
   }
 };
 </script>
 
 <style lang="scss">
 .container {
+  .header,
+  .outlined-text {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+  }
+
   .header {
     text-transform: uppercase;
     font-size: 250px;
+  }
+
+  .outlined-text {
+    color: transparent;
   }
 
   .section__hero {
@@ -159,8 +222,6 @@ export default {
 
     .header {
       color: #15557c;
-      -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: black;
       color: $main-color;
     }
 
@@ -194,6 +255,7 @@ export default {
             &:hover {
               color: $main-color;
               -webkit-text-stroke-color: black;
+              -webkit-text-stroke-width: 1.3px;
             }
           }
         }
@@ -203,6 +265,46 @@ export default {
         position: absolute;
         top: 0px;
         left: 0px;
+      }
+    }
+  }
+
+  .section__work {
+    $main-color: #15557c;
+    margin-top: 200px;
+    padding: 0px 20px;
+    color: #15557c;
+    font-size: 80px;
+    width: 86%;
+
+    .text {
+      padding-left: 20px;
+      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-width: 1px;
+    }
+
+    .projects {
+      margin-top: 50px;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      font-size: 75px;
+      -webkit-text-stroke-color: #15557c;
+
+      span {
+        display: inline-block;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+
+        &:hover {
+          color: $main-color;
+          -webkit-text-stroke-color: black;
+          -webkit-text-stroke-width: 1.3px;
+        }
       }
     }
   }
