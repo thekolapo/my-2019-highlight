@@ -5,6 +5,9 @@ body {
   font-weight: normal;
   background-color: #e4b0a0;
   margin: 0px;
+  color: #15777c;
+  transition: color 0.4s ease-in-out;
+  -webkit-text-stroke-color: #15777c;
 
   &::-webkit-scrollbar {
     width: 0px;
