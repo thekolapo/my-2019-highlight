@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
-    "nuxt": "^2.0.0"
+    "jquery.appear": "^1.0.1",
+    "nuxt": "^2.0.0",
+    "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
