@@ -10,57 +10,33 @@
       </div>
       <div class="marquee">
         <ul class="list">
-          <li class="listitem">
-            <span>2019 YEAR IN REVIEW</span>
-          </li>
-          <li class="listitem">
-            <span>2019 YEAR IN REVIEW</span>
-          </li>
-          <li class="listitem">
-            <span>2019 YEAR IN REVIEW</span>
-          </li>
-          <li class="listitem">
-            <span>2019 YEAR IN REVIEW</span>
-          </li>
-          <li class="listitem">
+          <li
+            v-for="index in 4"
+            :key="index"
+            class="listitem"
+          >
             <span>2019 YEAR IN REVIEW</span>
           </li>
         </ul>
       </div>
       <div class="marquee">
         <ul class="list">
-          <li class="listitem">
-            <span>2019 HIGHLIGHTS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HIGHLIGHTS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HIGHLIGHTS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HIGHLIGHTS</span>
-          </li>
-          <li class="listitem">
+          <li
+            v-for="index in 4"
+            :key="index"
+            class="listitem"
+          >
             <span>2019 HIGHLIGHTS</span>
           </li>
         </ul>
       </div>
       <div class="marquee">
         <ul class="list">
-          <li class="listitem">
-            <span>2019 HAPPENINGS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HAPPENINGS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HAPPENINGS</span>
-          </li>
-          <li class="listitem">
-            <span>2019 HAPPENINGS</span>
-          </li>
-          <li class="listitem">
+          <li
+            v-for="index in 4"
+            :key="index"
+            class="listitem"
+          >
             <span>2019 HAPPENINGS</span>
           </li>
         </ul>
