@@ -68,7 +68,8 @@
           </span>
         </div>
         <div class="text">
-          To all the emails & messages I got from people appreciating my work,
+          To all the emails & messages I got from people across
+          different continents appreciating my work,
           it really warmed my heart.
         </div>
       </div>
@@ -84,7 +85,198 @@
         <div class="text">
           I didn't read as many books as I did in 2018.
           Two nice books I read this year are Ask The Dust by John Fante
-          & Design Is Storytelling by Ellen Lupton
+          & Design Is Storytelling by Ellen Lupton.
+        </div>
+      </div>
+    </div>
+    <div
+      id="section__travel"
+      v-observe-visibility="visibilityChanged"
+    >
+      <div class="header">
+        Travel & Photography
+      </div>
+      <div class="content">
+        <div class="text">
+          I visited four countries this year &
+          took a lot of great pictures.
+        </div>
+      </div>
+      <div class="marquee">
+        <ul class="list">
+          <li
+            v-for="index in 7"
+            :key="index"
+            class="listitem"
+          >
+            <span>Portugal 🇵🇹</span>
+          </li>
+        </ul>
+      </div>
+      <div class="marquee">
+        <ul class="list">
+          <li
+            v-for="index in 7"
+            :key="index"
+            class="listitem"
+          >
+            <span>ITALY 🇮🇹</span>
+          </li>
+        </ul>
+      </div>
+      <div class="marquee">
+        <ul class="list">
+          <li
+            v-for="index in 7"
+            :key="index"
+            class="listitem"
+          >
+            <span>SPAIN 🇪🇸</span>
+          </li>
+        </ul>
+      </div>
+      <div class="marquee">
+        <ul class="list">
+          <li
+            v-for="index in 7"
+            :key="index"
+            class="listitem"
+          >
+            <span>Benin 🇧🇯</span>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="pictures-group">
+          <div>
+            <img src="@/assets/images/vintage-car.jpg" alt="vintage-car">
+            <div class="desc">
+              Vintage car | Lisbon 🇵🇹
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/food-barcelona.jpg" alt="food">
+            <div class="desc">
+              Food | Barcelona 🇪🇸
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/kolapo-lisbon.jpg" alt="kolapo">
+            <div class="desc">
+              Me | Lisbon 🇧🇯
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/hendrick's-gin.jpg" alt="hendrick's-gin">
+            <div class="desc">
+              Hendrick's gin | Lisbon 🇵🇹
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/boat-2.jpg" alt="boat">
+            <div class="desc">
+              Boat cruise | Lisbon 🇵🇹
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/light.jpg" alt="light">
+            <div class="desc">
+              Light | Casablanca 🇲🇦
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/building-rome.jpg" alt="vintage-car">
+            <div class="desc">
+              Random building | Rome 🇮🇹
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/gbems.jpg" alt="gbems">
+            <div class="desc">
+              Gbemi | Porto-Novo 🇧🇯
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/cup.jpg" alt="kolapo">
+            <div class="desc">
+              Cup | Casablanca 🇲🇦
+            </div>
+          </div>
+        </div>
+        <div class="text">
+          You can also check my
+          <span class="outlined-text">VSCO</span>
+          to see a lot more pictures I've taken.
+        </div>
+      </div>
+    </div>
+    <div id="section__review">
+      <div class="content">
+        <div class="text">
+          I won't lie 2019 has been a rollercoaster of highs and lows.
+          I achieved some of my goals, didn't achieve some.
+          Sometimes I struggled, other times, I felt like a god.
+          I got less scared of the future, met my sugar mami; Tomiwa.
+          Did a lot of faaji because life is too short & na only one life dey.
+          Took mad shots too.
+          <!-- To Lara, Tomiwa, Kachi, Gbems & everyone that was part of my 2019,
+          thanks for making it a good year. -->
+        </div>
+        <div class="pictures-group">
+          <div>
+            <img src="@/assets/images/chisom.jpg" alt="chisom">
+            <div class="desc">
+              Chisom | Ilashe beach
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/kachi-ilashe.jpg" alt="kachi">
+            <div class="desc">
+              Kachi | Ilashe Beach
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/anike.jpg" alt="Anike">
+            <div class="desc">
+              Anike
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/lara.jpg" alt="lara">
+            <div class="desc">
+              Lara ❤️
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/tomiwa.jpg" alt="tomiwa">
+            <div class="desc">
+              Tomiwa
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/iniye.jpg" alt="iniye">
+            <div class="desc">
+              Iniye
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/kolapo-ilashe.jpg" alt="kolapo">
+            <div class="desc">
+              Me | Ilashe
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/dominos.jpg" alt="gbems">
+            <div class="desc">
+              Dominos
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/images/gelato.jpg" alt="light">
+            <div class="desc">
+              Gelato | Rome 🇮🇹
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,7 +301,7 @@ export default {
   },
   mounted () {
     let marquees = $('.marquee');
-    const forwardDirection = [false, true]
+    const forwardDirection = [false, true, false, false, true, false, true]
 
     for (let index = 0; index < marquees.length; index++) {
       this.createMarqueeEffect(marquees[index], forwardDirection[index]);
@@ -199,7 +391,15 @@ export default {
               'background-color': '#FFD9D8'
             })
             break;
-        
+
+          case 'section__travel':
+            $('body').css({
+              'color': '#E79292',
+              '-webkit-text-stroke-color': '#E79292',
+              'background-color': '#DCF3E8'
+            })
+            break;
+
           default:
             break;
         }
@@ -217,9 +417,9 @@ export default {
             
           case 'section__reading':
             $('body').css({
-              'color': '#15557c',
-              '-webkit-text-stroke-color': '#15557c',
-              'background-color': '#E4B0A0'
+              'color': '#E79292',
+              '-webkit-text-stroke-color': '#E79292',
+              'background-color': '#DCF3E8'
             })
             break;
             
@@ -242,72 +442,117 @@ export default {
   .header {
     -webkit-text-stroke-color: black;
     text-transform: uppercase;
-    font-size: 250px;
+    font-size: 225px;
+    // overflow-wrap: break-word;
   }
 
   .outlined-text {
     color: transparent;
+    cursor: pointer;
+  }
+
+  .marquee {
+    position: relative;
+    top: 30px;
+    left: 0%;
+    width: 99.9%;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke-width: 1.6px;
+
+    .list {
+      position: relative;
+      display: inline-block;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        float: left;
+        padding-left: 20px;
+
+        span {
+          transition: 0.4s ease-in-out;
+
+          &:hover {
+            -webkit-text-stroke-color: black;
+            -webkit-text-stroke-width: 1.3px;
+          }
+        }
+      }
+    }
+
+    .list.cloned {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
   }
 
   .section__hero {
     $main-color: #15777c;
     padding-top: 200px;
 
-    .marquee {
-      position: relative;
-      top: 30px;
-      left: 0%;
-      width: 99.9%;
-      overflow: hidden;
-      cursor: pointer;
-      font-size: 80px;
-      text-transform: uppercase;
-      color: transparent;
-      -webkit-text-stroke-width: 1.6px;
-      // -webkit-text-stroke-color: $main-color;
-
-      .list {
-        position: relative;
-        display: inline-block;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-          float: left;
-          padding-left: 20px;
-
-          span {
-            transition: 0.4s ease-in-out;
-
-            &:hover {
-              color: $main-color;
-              -webkit-text-stroke-color: black;
-              -webkit-text-stroke-width: 1.3px;
-            }
-          }
+    .marquee .list {
+      li span {
+        &:hover {
+          color: $main-color;
         }
-      }
-
-      .list.cloned {
-        position: absolute;
-        top: 0px;
-        left: 0px;
       }
     }
   }
 
+  #section__review,
+  #section__travel,
   #section__reading,
   .section__work {
     $main-color: #15557c;
     margin-top: 250px;
-    padding: 0px 20px;
     font-size: 80px;
-    width: 92%;
     box-sizing: border-box;
 
-    .content {
+    .header {
       padding-left: 20px;
+    }
+
+    .content {
+      padding: 0px 40px;
+      width: 99%;
+      box-sizing: border-box;
+
+      .pictures-group {
+        margin-top: 120px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 142.1vw;
+        padding-left: 38px;
+        box-sizing: border-box;
+
+        & > div {
+          width: 31%;
+          margin-bottom: 40px;
+          display: flex;
+          flex-direction: column;
+          
+          img {
+            width: 100%;
+            height: auto;
+            object-position: center;
+            object-fit: contain;
+          }
+
+          .desc {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 10px;
+          }
+        }
+      }
     }
 
     .text {
@@ -326,7 +571,7 @@ export default {
         display: inline-block;
         margin-bottom: 30px;
         cursor: pointer;
-        transition: 0.4s ease-in-out;
+        transition: 0.2s ease-in-out;
 
         &:last-child {
           margin-bottom: 0px;
@@ -336,6 +581,7 @@ export default {
           color: $main-color;
           -webkit-text-stroke-color: black;
           -webkit-text-stroke-width: 1.3px;
+          transition: 0.4s ease-in-out;
         }
       }
     }
@@ -343,6 +589,45 @@ export default {
 
   .section__reading {
     $main-color: #15557c;
+  }
+
+  #section__travel {
+    $main-color: #E79292;
+
+    .content {
+      margin-bottom: 30px;
+      width: 100%;
+
+      .outlined-text {
+        -webkit-text-stroke-color: $main-color;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          color: $main-color;
+          -webkit-text-stroke-color: black;
+          -webkit-text-stroke-width: 1.3px;
+        }
+      }
+    }
+
+    .marquee {
+      margin-top: 25px;
+
+      .list {
+        li span {
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+
+  #section__review {
+    .content .pictures-group { 
+      // background-color: bisque;
+      height: 160vw;
+    }
   }
 }
 </style>
