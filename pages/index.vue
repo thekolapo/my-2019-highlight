@@ -94,7 +94,7 @@
       v-observe-visibility="visibilityChanged"
     >
       <div class="header">
-        Travel & Photography
+        Travel
       </div>
       <div class="content">
         <div class="text">
@@ -218,9 +218,7 @@
           Sometimes I struggled, other times, I felt like a god.
           I got less scared of the future, met my sugar mami; Tomiwa.
           Did a lot of faaji because life is too short & na only one life dey.
-          Took mad shots too.
-          <!-- To Lara, Tomiwa, Kachi, Gbems & everyone that was part of my 2019,
-          thanks for making it a good year. -->
+          Took really mad shots too.
         </div>
         <div class="pictures-group">
           <div>
@@ -262,7 +260,7 @@
           <div>
             <img src="@/assets/images/kolapo-ilashe.jpg" alt="kolapo">
             <div class="desc">
-              Me | Ilashe
+              Me | Ilashe beach
             </div>
           </div>
           <div>
@@ -277,6 +275,34 @@
               Gelato | Rome 🇮🇹
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div id="section__extra">
+      <div class="content">
+        <div class="text">
+          To
+          <span class="outlined-text">
+            Lara
+            <i class="fas fa-heart" />
+            <i class="fas fa-heart" />,
+            Tomiwa, Kachi, Gbemi
+          </span>
+          & everyone that was part of my 2019,
+          thanks for making it a good year.
+          To 2020 - A new year to make cool $hit
+          & sweet memories.
+        </div>
+      </div>
+    </div>
+    <div id="section__footer">
+      <div class="content">
+        <div class="text">
+          Made in Lagos, Nigeria by
+          <span class="outlined-text">
+            the cool kid Kp
+          </span>
+          🤘🏾.
         </div>
       </div>
     </div>
@@ -434,6 +460,9 @@ export default {
 
 <style lang="scss">
 .container {
+  font-size: 80px;
+  padding-bottom: 100px;
+
   .header,
   .outlined-text {
     -webkit-text-stroke-width: 2px;
@@ -442,7 +471,7 @@ export default {
   .header {
     -webkit-text-stroke-color: black;
     text-transform: uppercase;
-    font-size: 225px;
+    font-size: 250px;
     // overflow-wrap: break-word;
   }
 
@@ -458,7 +487,6 @@ export default {
     width: 99.9%;
     overflow: hidden;
     cursor: pointer;
-    font-size: 80px;
     text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke-width: 1.6px;
@@ -505,13 +533,14 @@ export default {
     }
   }
 
+  #section__footer,
+  #section__extra,
   #section__review,
   #section__travel,
   #section__reading,
   .section__work {
     $main-color: #15557c;
     margin-top: 250px;
-    font-size: 80px;
     box-sizing: border-box;
 
     .header {
@@ -626,8 +655,22 @@ export default {
   #section__review {
     .content .pictures-group { 
       // background-color: bisque;
-      height: 160vw;
+      height: 152.8vw;
     }
+  }
+
+  #section__footer,
+  #section__extra {
+    $main-color: #E79292;
+    margin-top: 230px;
+
+    .outlined-text {
+      -webkit-text-stroke-color: $main-color;
+    }
+  }
+
+  #section__footer {
+   font-size: 70px;
   }
 }
 </style>
