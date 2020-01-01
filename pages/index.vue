@@ -45,7 +45,7 @@
     <div
       id="section__work"
       v-observe-visibility="visibilityChanged"
-      class="section__work"
+      class="section section__work"
     >
       <div class="header">
         Work
@@ -77,6 +77,7 @@
     <div
       id="section__reading"
       v-observe-visibility="visibilityChanged"
+      class="section"
     >
       <div class="header">
         Reading
@@ -92,6 +93,7 @@
     <div
       id="section__travel"
       v-observe-visibility="visibilityChanged"
+      class="section"
     >
       <div class="header">
         Travel
@@ -210,7 +212,10 @@
         </div>
       </div>
     </div>
-    <div id="section__review">
+    <div
+      id="section__review"
+      class="section"
+    >
       <div class="content">
         <div class="text">
           I won't lie 2019 has been a rollercoaster of highs and lows.
@@ -278,7 +283,10 @@
         </div>
       </div>
     </div>
-    <div id="section__extra">
+    <div
+      id="section__extra"
+      class="section"
+    >
       <div class="content">
         <div class="text">
           To
@@ -295,7 +303,10 @@
         </div>
       </div>
     </div>
-    <div id="section__footer">
+    <div
+      id="section__footer"
+      class="section"
+    >
       <div class="content">
         <div class="text">
           Made in Lagos, Nigeria by
@@ -538,14 +549,10 @@ export default {
     }
   }
 
-  #section__footer,
-  #section__extra,
-  #section__review,
-  #section__travel,
-  #section__reading,
-  .section__work {
+  .section {
     $main-color: #15557c;
     margin-top: 250px;
+    // margin-top: 14.881vw;
     box-sizing: border-box;
 
     .header {
@@ -565,15 +572,22 @@ export default {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 142.1vw;
+        height: 150vw;
         padding-left: 38px;
         box-sizing: border-box;
 
         & > div {
           width: 31%;
-          margin-bottom: 40px;
+          margin-bottom: 80px;
           display: flex;
           flex-direction: column;
+          position: relative;
+
+          &:nth-child(3),
+          &:nth-child(6),
+          &:nth-child(9) {
+            margin-bottom: 0px;
+          }
           
           img {
             width: 100%;
@@ -586,6 +600,8 @@ export default {
             font-size: 18px;
             text-transform: uppercase;
             margin-top: 10px;
+            position: absolute;
+            bottom: -40px;
           }
         }
       }
@@ -671,6 +687,7 @@ export default {
   #section__extra {
     $main-color: #E79292;
     margin-top: 230px;
+    // margin-top: 13.691vw;
 
     .outlined-text {
       -webkit-text-stroke-color: $main-color;
@@ -683,6 +700,71 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+  .container {
+    .section {
+      .content .pictures-group {
+        padding-left: 20px;
+        height: 155vw;
 
+        & > div {
+          width: 31%;
+          
+          .desc {
+            font-size: 16px;
+            bottom: -35px;
+          }
+        }
+      } 
+    }
+
+    #section__review {
+      .content .pictures-group {
+        height: 160vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 812px) {
+  .container {
+    .section {
+      .content .pictures-group {
+        padding-left: 20px;
+        height: 155vw;
+
+        & > div {
+          .desc {
+            font-size: 15px;
+            bottom: -33px;
+          }
+        }
+      } 
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .section {
+      .content .pictures-group {
+        flex-direction: row;
+        height: auto !important;
+        align-items: flex-start;
+        padding-left: 0px;
+        justify-content: space-between;
+
+        & > div {
+          width: 48%;
+          margin-bottom: 40px !important;
+
+          .desc {
+            font-size: 16px;
+            position: relative;
+            bottom: 0px;
+          }
+        }
+      } 
+    }
+  }
 }
 </style>
