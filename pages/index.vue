@@ -332,6 +332,10 @@ export default {
     for (let index = 0; index < marquees.length; index++) {
       this.createMarqueeEffect(marquees[index], forwardDirection[index]);
     }
+
+    window.addEventListener('resize', function () {
+      // this.infinite.kill;
+    });
   },
   methods: {
     createMarqueeEffect (textGroup, forwardDirection) {
@@ -460,7 +464,8 @@ export default {
 
 <style lang="scss">
 .container {
-  font-size: 80px;
+  // font-size: 80px;
+  font-size: 4.762vw;
   padding-bottom: 100px;
 
   .header,
@@ -471,8 +476,8 @@ export default {
   .header {
     -webkit-text-stroke-color: black;
     text-transform: uppercase;
-    font-size: 250px;
-    // overflow-wrap: break-word;
+    // font-size: 250px;
+    font-size: 14.8881vw;
   }
 
   .outlined-text {
@@ -544,11 +549,13 @@ export default {
     box-sizing: border-box;
 
     .header {
-      padding-left: 20px;
+      // padding-left: 20px;
+      padding-left: 1.191vw;
     }
 
     .content {
-      padding: 0px 40px;
+      // padding: 0px 40px;
+      padding: 0px 2.381vw;
       width: 99%;
       box-sizing: border-box;
 
@@ -593,7 +600,8 @@ export default {
       margin-top: 50px;
       margin-bottom: 60px;
       text-transform: uppercase;
-      font-size: 75px;
+      // font-size: 75px;
+      font-size: 5.769vw;
       // -webkit-text-stroke-color: $main-color;
 
       span {
@@ -670,7 +678,11 @@ export default {
   }
 
   #section__footer {
-   font-size: 70px;
+   font-size: 4.167vw;
   }
+}
+
+@media screen and (max-width: 1024px) {
+
 }
 </style>
