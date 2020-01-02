@@ -4,7 +4,17 @@
       v-if="loadingAssets"
       class="loader"
     >
-      Loading Assets...
+      <div class="summary">
+        With the hours, days and months flying by at lightning
+        speed, we take a moment to dive into our 2018 time
+        capsule and reflect on the year gone by.
+      </div>
+      <div class="img-container">
+        <div class="loader-text">
+          {{ loaderCounter }}%
+        </div>
+        <img src="@/assets/images/loader.png" alt="loader-img">
+      </div>
     </div>
     <div
       id="section__hero"
@@ -196,7 +206,7 @@
             </div>
           </div>
           <div>
-            <img src="@/assets/images/hendrick's-gin.jpg" alt="hendrick's-gin">
+            <img src="@/assets/images/hendricks-gin.jpg" alt="hendrick's-gin">
             <div class="desc">
               Hendrick's gin | Lisbon 🇵🇹
             </div>
@@ -372,11 +382,12 @@ export default {
     return {
       visibilityThreshold: 0.2,
       isMobileBrowser: false,
-      loadingAssets: true
+      loadingAssets: true,
+      loaderCounter: 0 
     }
   },
   mounted () {
-    const that = this;
+    this.preloadImages();
     let marquees = $('.marquee');
     const forwardDirection = [false, true, false, false, true, false, true]
 
@@ -389,12 +400,67 @@ export default {
     });
 
     $( document ).ready(function() {
-      that.loadingAssets = false;
+      // that.loadingAssets = false;
     });
 
     this.isMobileBrowser = this.checkIfMobileBrowser();
   },
   methods: {
+    preloadImages() {
+      const that = this;
+
+      let images = []
+      let imgNames = [
+        'anike.jpg',
+        'boat-2.jpg',
+        'building-rome.jpg',
+        'chisom.jpg',
+        'cup.jpg',
+        'dominos.jpg',
+        'food-barcelona.jpg',
+        'gbems.jpg',
+        'gelato.jpg',
+        'hendricks-gin.jpg',
+        'iniye.jpg',
+        'kachi-ilashe.jpg',
+        'kolapo-ilashe.jpg',
+        'kolapo-lisbon.jpg',
+        'lara.jpg',
+        'light.jpg',
+        'tomiwa.jpg',
+        'vintage-car.jpg',
+      ]
+
+      imgNames.forEach(imgSrc => {
+        let img = new Image();
+        img.src = require(`@/assets/images/${imgSrc}`);
+        images.push(img)
+      });
+
+      imagesLoaded(images).on(
+        'progress', function( instance, image ) {
+          that.loaderCounter += 5;
+
+          if(that.loaderCounter == 90) {
+            that.loaderCounter = 100;
+          }
+
+          if(that.loaderCounter == 100) {
+            new TimelineLite().to(
+              '.loader', 0.66, 
+              {
+                opacity: 0, 
+                ease: Power2.easeIn,
+                delay: 1,
+                onComplete:function(){
+                  that.loadingAssets = false;
+                }
+              }
+            )
+          }
+        }
+      );
+    },
     checkIfMobileBrowser() {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         return true;
@@ -534,10 +600,56 @@ export default {
   z-index: 10;
   background-color: #e4b0a0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 100px;
+  color: #15557c;
+  color: #15777c;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+
+  .summary {
+    font-size: 30px;
+    text-align: center;
+    width: 50%;
+    line-height: 40px;
+    margin-bottom: 15px;
+  }
+
+  .img-container {
+    width: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-position: center;
+      margin: 0 auto;
+      object-fit: cover;
+      animation: rotation 20s infinite linear;
+    }
+
+    .loader-text {
+      position: absolute;
+      font-size: 30px;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  @keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+    }
+  }
 }
+
 .container {
   // font-size: 80px;
   font-size: 4.762vw;
@@ -642,7 +754,7 @@ export default {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 150vw;
+        height: 145vw;
         padding-left: 38px;
         box-sizing: border-box;
 
