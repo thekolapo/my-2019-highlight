@@ -862,7 +862,8 @@ export default {
       .content {
         width: 100%;
         
-        .text {
+        .text,
+        a:hover {
           -webkit-text-stroke-width: 0.4px;
         }
       }
