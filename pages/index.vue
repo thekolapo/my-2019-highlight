@@ -842,6 +842,14 @@ export default {
 
     .section__hero {
       padding-top: 150px;
+
+      .header {
+        margin-bottom: -10px;
+      }
+
+      .marquee {
+        margin-top: 10px;
+      }
     }
 
     #section__footer {
