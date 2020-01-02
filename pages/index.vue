@@ -60,9 +60,11 @@
           <span>
             - Gomoney early access site
           </span>
+          <br>
           <span>
             - Gomoney blog
           </span>
+          <br>
           <span>
             - My portfolio redesign
           </span>
