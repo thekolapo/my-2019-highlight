@@ -833,14 +833,17 @@ export default {
 
     .section {
       margin-top: 150px;
-      
+    
       .content {
         width: 100%;
         
         .text {
           -webkit-text-stroke-width: 0.4px;
         }
+      }
 
+      .projects {
+        font-size: 23.2px;
       }
     }
 
