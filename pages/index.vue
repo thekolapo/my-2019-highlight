@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div
-      v-if="!loadingAssets"
+      v-if="loadingAssets"
       class="loader"
     >
       <div class="summary">
