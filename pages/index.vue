@@ -1,6 +1,12 @@
 <template>
   <div class="container">
     <div
+      v-if="loadingAssets"
+      class="loader"
+    >
+      Loading Assets...
+    </div>
+    <div
       id="section__hero"
       v-observe-visibility="visibilityChanged"
       class="section__hero"
@@ -365,10 +371,12 @@ export default {
   data () {
     return {
       visibilityThreshold: 0.2,
-      isMobileBrowser: false
+      isMobileBrowser: false,
+      loadingAssets: true
     }
   },
   mounted () {
+    const that = this;
     let marquees = $('.marquee');
     const forwardDirection = [false, true, false, false, true, false, true]
 
@@ -378,6 +386,10 @@ export default {
 
     window.addEventListener('resize', function () {
       // this.infinite.kill;
+    });
+
+    $( document ).ready(function() {
+      that.loadingAssets = false;
     });
 
     this.isMobileBrowser = this.checkIfMobileBrowser();
@@ -515,6 +527,17 @@ export default {
 </script>
 
 <style lang="scss">
+.loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: #e4b0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
 .container {
   // font-size: 80px;
   font-size: 4.762vw;
@@ -800,7 +823,7 @@ export default {
     }
 
     .marquee {
-       -webkit-text-stroke-width: 1.2px;
+      -webkit-text-stroke-width: 1.2px;
     }
 
     .section {
@@ -868,6 +891,14 @@ export default {
     .marquee,
     .header {
       -webkit-text-stroke-width: 1px;
+    }
+
+    .marquee .list {
+      li span {
+        &:hover {
+          -webkit-text-stroke-width: 0.4px;
+        }
+      }
     }
 
     .section__hero {
