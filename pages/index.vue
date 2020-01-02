@@ -57,17 +57,16 @@
           some I can publicly talk about are:
         </div>
         <div class="projects outlined-text">
-          <span>
+          <a href="https://early-access.gomoney.global" target="blank">
             - Gomoney early access site
-          </span>
-          <br>
-          <span>
+          </a>
+          <a href="https://blog.gomoney.global" target="blank">
             - Gomoney blog
-          </span>
+          </a>
           <br>
-          <span>
+          <a href="https://thekolapo.com" target="blank">
             - My portfolio redesign
-          </span>
+          </a>
         </div>
         <div class="text">
           To all the emails & messages I got from people across
@@ -209,7 +208,9 @@
         </div>
         <div class="text">
           You can also check my
-          <span class="outlined-text">VSCO</span>
+          <a href="https://vsco.co/thekolapo" target="blank">
+            VSCO
+          </a>
           to see a lot more pictures I've taken.
         </div>
       </div>
@@ -292,12 +293,20 @@
       <div class="content">
         <div class="text">
           To
-          <span class="outlined-text">
+          <a href="https://twitter.com/_molara" target="blank">
             Lara
             <i class="fas fa-heart" />
-            <i class="fas fa-heart" />,
-            Tomiwa, Kachi, Gbemi
-          </span>
+            <i class="fas fa-heart" />
+          </a>,
+          <a href="https://twitter.com/fauxxbella" target="blank">
+            Tomiwa
+          </a>,
+          <a href="https://twitter.com/Gbemss_" target="blank">
+            Gbemi
+          </a>,
+          <a href="https://twitter.com/onykchi" target="blank">
+            Kachi
+          </a>
           & everyone that was part of my 2019,
           thanks for making it a good year.
           To 2020 - A new year to make cool $hit
@@ -312,9 +321,9 @@
       <div class="content">
         <div class="text">
           Made in Lagos, Nigeria by
-          <span class="outlined-text">
+          <a href="https://twitter.com/kolapo_" target="blank">
             the cool kid Kp
-          </span>
+          </a>
           🤘🏾.
         </div>
       </div>
@@ -481,8 +490,8 @@ export default {
   font-size: 4.762vw;
   padding-bottom: 100px;
 
-  .header,
-  .outlined-text {
+  a,
+  .header {
     -webkit-text-stroke-width: 2px;
   }
 
@@ -493,9 +502,15 @@ export default {
     font-size: 14.8881vw;
   }
 
-  .outlined-text {
+  a {
     color: transparent;
-    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black !important;
+    }
   }
 
   .marquee {
@@ -525,7 +540,7 @@ export default {
 
           &:hover {
             -webkit-text-stroke-color: black;
-            -webkit-text-stroke-width: 1.3px;
+            -webkit-text-stroke-width: 1px;
           }
         }
       }
@@ -624,10 +639,10 @@ export default {
       font-size: 5.769vw;
       // -webkit-text-stroke-color: $main-color;
 
-      span {
+      a {
+        -webkit-text-stroke-color: inherit;
         display: inline-block;
         margin-bottom: 30px;
-        cursor: pointer;
         transition: 0.2s ease-in-out;
 
         &:last-child {
@@ -636,8 +651,7 @@ export default {
 
         &:hover {
           color: $main-color;
-          -webkit-text-stroke-color: black;
-          -webkit-text-stroke-width: 1.3px;
+          -webkit-text-stroke-width: 1.2px;
           transition: 0.4s ease-in-out;
         }
       }
@@ -655,14 +669,11 @@ export default {
       margin-bottom: 30px;
       width: 100%;
 
-      .outlined-text {
+      a {
         -webkit-text-stroke-color: $main-color;
-        transition: 0.2s ease-in-out;
 
         &:hover {
           color: $main-color;
-          -webkit-text-stroke-color: black;
-          -webkit-text-stroke-width: 1.3px;
         }
       }
     }
@@ -693,8 +704,12 @@ export default {
     margin-top: 230px;
     // margin-top: 13.691vw;
 
-    .outlined-text {
+    a {
       -webkit-text-stroke-color: $main-color;
+
+      &:hover {
+        color: $main-color;
+      }
     }
   }
 
@@ -749,8 +764,8 @@ export default {
 
 @media screen and (max-width: 768px) {
   .container {
-    .header,
-    .outlined-text {
+    a,
+    .header {
       -webkit-text-stroke-width: 1.5px;
     }
 
@@ -819,9 +834,9 @@ export default {
   .container {
     font-size: 30px;
 
+    a,
     .marquee,
-    .header,
-    .outlined-text {
+    .header {
       -webkit-text-stroke-width: 1px;
     }
 
