@@ -602,6 +602,8 @@ export default {
             margin-top: 10px;
             position: absolute;
             bottom: -40px;
+            -webkit-text-stroke-width: 0.12px;
+            -webkit-text-stroke-color: black;
           }
         }
       }
@@ -679,7 +681,7 @@ export default {
   #section__review {
     .content .pictures-group { 
       // background-color: bisque;
-      height: 152.8vw;
+      height: 153vw;
     }
   }
 
@@ -745,7 +747,17 @@ export default {
 
 @media screen and (max-width: 768px) {
   .container {
+    .header,
+    .outlined-text {
+      -webkit-text-stroke-width: 1.5px;
+    }
+
+    .marquee {
+       -webkit-text-stroke-width: 1.2px;
+    }
+
     .section {
+      margin-top: 200px;
       .content .pictures-group {
         flex-direction: row;
         height: auto !important;
@@ -761,6 +773,94 @@ export default {
             font-size: 16px;
             position: relative;
             bottom: 0px;
+          }
+        }
+      } 
+
+      .text {
+        -webkit-text-stroke-width: 0.6px;
+      }
+    }
+
+    #section__footer,
+    #section__extra {
+      margin-top: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    .section {
+      .content .pictures-group {
+        justify-content: center;
+
+        & > div {
+          width: 95%;
+          margin-bottom: 45px !important;
+
+          .desc {
+            font-size: 17px;
+          }
+        }
+      } 
+    }
+
+    #section__footer,
+    #section__extra {
+      margin-top: 130px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    font-size: 30px;
+
+    .marquee,
+    .header,
+    .outlined-text {
+      -webkit-text-stroke-width: 1px;
+    }
+
+    .section__hero {
+      padding-top: 150px;
+    }
+
+    #section__footer {
+      font-size: 26px;
+    }
+
+    .section {
+      margin-top: 150px;
+      
+      .content {
+        width: 100%;
+        
+        .text {
+          -webkit-text-stroke-width: 0.4px;
+        }
+
+      }
+    }
+
+    #section__footer {
+      margin-top: 100px;
+    }
+
+    #section__extra {
+      margin-top: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    .section {
+      .content .pictures-group {
+        & > div {
+          .desc {
+            font-size: 16px;
           }
         }
       } 
