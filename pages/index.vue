@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div
-      v-if="loadingAssets"
+      v-if="!loadingAssets"
       class="loader"
     >
       <div class="summary">
         With the hours, days and months flying by at lightning
-        speed, we take a moment to dive into our 2018 time
+        speed, we take a moment to dive into our 2019 time
         capsule and reflect on the year gone by.
       </div>
       <div class="img-container">
@@ -614,11 +614,11 @@ export default {
     text-align: center;
     width: 50%;
     line-height: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 70px;
   }
 
   .img-container {
-    width: 500px;
+    width: 200px;
     position: relative;
     display: flex;
     justify-content: center;
