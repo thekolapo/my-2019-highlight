@@ -108,44 +108,64 @@
       <div class="marquee">
         <ul class="list">
           <li
-            v-for="index in 7"
+            v-for="index in 9"
             :key="index"
             class="listitem"
           >
-            <span>Portugal 🇵🇹</span>
+            <span>
+              Portugal
+              <span class="flag">
+                🇵🇹
+              </span>
+            </span>
           </li>
         </ul>
       </div>
       <div class="marquee">
         <ul class="list">
           <li
-            v-for="index in 7"
+            v-for="index in 9"
             :key="index"
             class="listitem"
           >
-            <span>ITALY 🇮🇹</span>
+            <span>
+              Italy
+              <span class="flag">
+                🇮🇹
+              </span>
+            </span>
           </li>
         </ul>
       </div>
       <div class="marquee">
         <ul class="list">
           <li
-            v-for="index in 7"
+            v-for="index in 9"
             :key="index"
             class="listitem"
           >
-            <span>SPAIN 🇪🇸</span>
+            <span>
+              Spain
+              <span class="flag">
+                🇪🇸
+              </span>
+            </span>
           </li>
         </ul>
       </div>
       <div class="marquee">
         <ul class="list">
           <li
-            v-for="index in 7"
+            v-for="index in 9"
             :key="index"
             class="listitem"
           >
-            <span>Benin 🇧🇯</span>
+            <span>
+              Benin
+              <span class="flag">
+                🇧🇯
+              </span>
+            </span>
           </li>
         </ul>
       </div>
@@ -344,7 +364,8 @@ export default {
   components: {},
   data () {
     return {
-      visibilityThreshold: 0.2
+      visibilityThreshold: 0.2,
+      isMobileBrowser: false
     }
   },
   mounted () {
@@ -358,8 +379,17 @@ export default {
     window.addEventListener('resize', function () {
       // this.infinite.kill;
     });
+
+    this.isMobileBrowser = this.checkIfMobileBrowser();
   },
   methods: {
+    checkIfMobileBrowser() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        return true;
+      }
+
+      return false;
+    },
     createMarqueeEffect (textGroup, forwardDirection) {
       const marquee = $(textGroup);
       const list = marquee.find('ul.list');
@@ -852,8 +882,19 @@ export default {
       }
     }
 
+    #section__travel {
+      .flag {
+        display: none;
+      }
+
+      .marquee {
+        margin-top: 12px;
+      }
+    }
+
     #section__footer {
       font-size: 26px;
+      margin-top: 100px;
     }
 
     .section {
@@ -871,10 +912,6 @@ export default {
       .projects {
         font-size: 23.2px;
       }
-    }
-
-    #section__footer {
-      margin-top: 100px;
     }
 
     #section__extra {
