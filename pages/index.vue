@@ -410,9 +410,12 @@ export default {
     }
 
     this.isMobileBrowser = this.checkIfMobileBrowser();
-
     this.windowWidth = window.innerWidth;
 
+    $(document).ready(function(){
+      that.changeColor('#15777c', '#E4B0A0');
+    });
+    
     window.addEventListener('resize', () => {
       let currentWidth = window.innerWidth;
       if(currentWidth != this.windowWidth) {
@@ -421,8 +424,8 @@ export default {
       }
     });
 
-    var lastScrollTop = 0;
-    window.addEventListener("scroll", () => {
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
       var st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > lastScrollTop){
         that.scrollingDown = true;
