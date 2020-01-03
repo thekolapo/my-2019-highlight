@@ -5,9 +5,9 @@
       class="loader"
     >
       <div class="summary">
-        With the hours, days and months flying by at lightning
-        speed, we take a moment to dive into our 2019 time
-        capsule and reflect on the year gone by.
+        With the hours, days and months gone by,
+        I take a moment to refelct on the highlights
+        and happenings of 2019.
       </div>
       <div class="img-container">
         <div id="loader-text">
@@ -392,11 +392,11 @@ export default {
   data () {
     return {
       visibilityThreshold: 0.2,
-      isMobileBrowser: false,
       loadingAssets: true,
       loaderCounter: 0,
       scrollingDown: true,
-      windowWidth: null
+      windowWidth: null,
+      showFlagEmoji: true
     }
   },
   mounted () {
@@ -409,12 +409,23 @@ export default {
       this.createMarqueeEffect(marquees[index], forwardDirection[index]);
     }
 
-    this.isMobileBrowser = this.checkIfMobileBrowser();
-    this.windowWidth = window.innerWidth;
+    // let isMobileBrowser = this.checkIfMobileBrowser();
+    // let isChromeBrowser = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
-    $(document).ready(function(){
-      that.changeColor('#15777c', '#E4B0A0');
+    // if(isMobileBrowser) {
+    //   this.showFlagEmoji = false;
+    // }
+    // else if(!isChromeBrowser) {
+    //   this.showFlagEmoji = false;
+    // }
+
+     $(document).ready(function(){
+      setTimeout(() => {
+        that.changeColor('#15777c', '#E4B0A0');
+      }, 100);
     });
+    
+    this.windowWidth = window.innerWidth;
     
     window.addEventListener('resize', () => {
       let currentWidth = window.innerWidth;
@@ -672,7 +683,7 @@ export default {
   .summary {
     font-size: 30px;
     text-align: center;
-    width: 50%;
+    width: 40%;
     line-height: 40px;
     margin-bottom: 70px;
   }
@@ -955,8 +966,24 @@ export default {
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .container {
+    .loader {
+      .summary {
+        width: 50%;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .container {
+    .loader {
+      .summary {
+        width: 60%;
+      }
+    }
+
     .section {
       .content .pictures-group {
         padding-left: 20px;
@@ -983,6 +1010,12 @@ export default {
 
 @media screen and (max-width: 812px) {
   .container {
+    .loader {
+      .summary {
+        width: 80%;
+      }
+    }
+
     .section {
       .content .pictures-group {
         padding-left: 20px;
@@ -1045,6 +1078,16 @@ export default {
 
 @media screen and (max-width: 620px) {
   .container {
+    .loader {
+      .summary {
+        width: 90%;
+      }
+
+      .img-container {
+        width: 170px;
+      }
+    }
+
     .section {
       .content .pictures-group {
         justify-content: center;
@@ -1070,6 +1113,19 @@ export default {
 @media screen and (max-width: 480px) {
   .container {
     font-size: 30px;
+
+    .loader {
+      .summary {
+        width: 96%;
+        font-size: 24px;
+        margin-bottom: 45px;
+        line-height: 36px;
+      }
+
+      .img-container {
+        width: 160px;
+      }
+    }
 
     a,
     .marquee,
@@ -1137,6 +1193,18 @@ export default {
 
 @media screen and (max-width: 360px) {
   .container {
+    .loader {
+      .summary {
+        font-size: 20px;
+        margin-bottom: 40px;
+        line-height: 32px;
+        margin-top: -20px;
+      }
+
+      .img-container {
+        width: 130px;
+      }
+    }
     .section {
       .content .pictures-group {
         & > div {
