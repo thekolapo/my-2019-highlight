@@ -1130,7 +1130,7 @@ export default {
     a,
     .marquee,
     .header {
-      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-width: 0.85px;
     }
 
     .marquee .list {
@@ -1193,6 +1193,8 @@ export default {
 
 @media screen and (max-width: 360px) {
   .container {
+    font-size: 29px;
+
     .loader {
       .summary {
         font-size: 20px;
