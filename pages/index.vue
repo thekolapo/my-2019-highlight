@@ -10,7 +10,7 @@
         capsule and reflect on the year gone by.
       </div>
       <div class="img-container">
-        <div class="loader-text">
+        <div id="loader-text">
           {{ loaderCounter }}%
         </div>
         <img src="@/assets/images/loader.png" alt="loader-img">
@@ -242,17 +242,22 @@
             </div>
           </div>
         </div>
-        <div class="text">
-          You can also check my
+        <div class="text text-with-link">
+          <span>
+            You can also check my
+          </span>
           <a href="https://vsco.co/thekolapo" target="blank">
             VSCO
           </a>
-          to see a lot more pictures I've taken.
+          <span>
+            to see a lot more pictures I've taken.
+          </span>
         </div>
       </div>
     </div>
     <div
       id="section__review"
+      v-observe-visibility="visibilityChanged"
       class="section"
     >
       <div class="content">
@@ -324,11 +329,12 @@
     </div>
     <div
       id="section__extra"
+      v-observe-visibility="visibilityChanged"
       class="section"
     >
       <div class="content">
-        <div class="text">
-          To
+        <div class="text text-with-link">
+          <span>To</span>
           <a href="https://twitter.com/_molara" target="blank">
             Lara
             <i class="fas fa-heart" />
@@ -343,24 +349,27 @@
           <a href="https://twitter.com/onykchi" target="blank">
             Kachi
           </a>
-          & everyone that was part of my 2019,
-          thanks for making it a good year.
-          To 2020 - A new year to make cool $hit
-          & sweet memories.
+          <span>
+            & everyone that was part of my 2019,
+            thanks for making it a good year.
+            To 2020 - A new year to make cool $hit
+            & sweet memories.
+          </span>
         </div>
       </div>
     </div>
     <div
       id="section__footer"
+      v-observe-visibility="visibilityChanged"
       class="section"
     >
       <div class="content">
-        <div class="text">
-          Made in Lagos, Nigeria by
+        <div class="text text-with-link">
+          <span>Made in Lagos, Nigeria by</span>
           <a href="https://twitter.com/kolapo_" target="blank">
             the cool kid Kp
           </a>
-          🤘🏾.
+          <span>🤘🏾.</span>
         </div>
       </div>
     </div>
@@ -370,11 +379,13 @@
 <script>
 /* eslint semi: "error" */
 /* eslint-disable */
-import $ from 'jquery';
+import $ from 'jquery'
 import Vue from 'vue'
 import VueObserveVisibility from 'vue-observe-visibility'
 
 Vue.use(VueObserveVisibility)
+
+let that = null
 
 export default {
   components: {},
@@ -383,10 +394,12 @@ export default {
       visibilityThreshold: 0.2,
       isMobileBrowser: false,
       loadingAssets: true,
-      loaderCounter: 0 
+      loaderCounter: 0,
+      scrollingDown: true
     }
   },
   mounted () {
+    that = this;
     this.preloadImages();
     let marquees = $('.marquee');
     const forwardDirection = [false, true, false, false, true, false, true]
@@ -395,20 +408,25 @@ export default {
       this.createMarqueeEffect(marquees[index], forwardDirection[index]);
     }
 
+    this.isMobileBrowser = this.checkIfMobileBrowser();
+
     window.addEventListener('resize', function () {
       // this.infinite.kill;
     });
 
-    $( document ).ready(function() {
-      // that.loadingAssets = false;
-    });
-
-    this.isMobileBrowser = this.checkIfMobileBrowser();
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", function(){
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop){
+        that.scrollingDown = true;
+      } else {
+        that.scrollingDown = false;
+      }
+      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
   },
   methods: {
     preloadImages() {
-      const that = this;
-
       let images = []
       let imgNames = [
         'anike.jpg',
@@ -440,6 +458,7 @@ export default {
       imagesLoaded(images).on(
         'progress', function( instance, image ) {
           that.loaderCounter += 5;
+          // document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
 
           if(that.loaderCounter == 90) {
             that.loaderCounter = 100;
@@ -529,36 +548,40 @@ export default {
           infinite.play();
         });
     },
+    changeColor(textColor, bgColor) {
+      $('body').css({
+        'color': textColor,
+        '-webkit-text-stroke-color': textColor,
+        'background-color': bgColor
+      })
+    },
     visibilityChanged (isVisible, entry) {
       if (isVisible) {
         switch (entry.target.id) {
           case 'section__hero':
-            $('body').css("color", "#15777c")
-            $('body').css("-webkit-text-stroke-color", "#15777c")
-            $('body').css('background-color', "#E4B0A0")
+            this.changeColor('#15777c', '#E4B0A0');
             break;
 
           case 'section__work':
-            $('body').css("color", "#15557c")
-            $('body').css("-webkit-text-stroke-color", "#15557c")
-            $('body').css('background-color', "#E4B0A0")
+            this.changeColor('#15557c', '#E4B0A0');
             break;
 
           case 'section__reading':
-            $('body').css({
-              'color': '#5660B7',
-              '-webkit-text-stroke-color': '#5660B7',
-              'background-color': '#FFD9D8'
-            })
+            this.changeColor('#5660B7', '#FFD9D8');
             break;
 
           case 'section__travel':
-            $('body').css({
-              'color': '#E79292',
-              '-webkit-text-stroke-color': '#E79292',
-              'background-color': '#DCF3E8'
-            })
+            this.changeColor('#E79292', '#DCF3E8');
             break;
+
+          case 'section__review':
+            this.changeColor('#15557c', '#E4B0A0');
+            break;
+
+          // case 'section__footer':
+          // case 'section__extra':
+          //   this.changeColor('#15557c', '#E4B0A0');
+          //   break;
 
           default:
             break;
@@ -566,22 +589,41 @@ export default {
       }else if (!isVisible) {
         switch (entry.target.id) {
           case 'section__hero':
-            $('body').css("color", "#15557c")
-            $('body').css("-webkit-text-stroke-color", "#15557c")
+            this.changeColor('#15557c', '#E4B0A0');
             break;
 
           case 'section__work':
-            $('body').css("color", "#15777c")
-            $('body').css("-webkit-text-stroke-color", "#15777c")
+            if(this.scrollingDown){
+              this.changeColor('#5660B7', '#FFD9D8');
+              return;
+            }
+
+            this.changeColor('#15777c', '#E4B0A0');
             break;
             
           case 'section__reading':
-            $('body').css({
-              'color': '#E79292',
-              '-webkit-text-stroke-color': '#E79292',
-              'background-color': '#DCF3E8'
-            })
+            if(this.scrollingDown) {
+              this.changeColor('#E79292', '#DCF3E8');
+              return;
+            }
+            
+            this.changeColor('#15557c', '#E4B0A0');
             break;
+
+          case 'section__travel':
+            if(this.scrollingDown){
+              this.changeColor('#15557c', '#E4B0A0');
+              return;
+            }
+            
+            this.changeColor('#5660B7', '#FFD9D8');
+            break;
+
+          // case 'section__extra':
+          //   if(!this.scrollingDown) {
+          //     this.changeColor('#15557c', '#E4B0A0');
+          //   }
+          //   break;
             
           default:
             break;
@@ -633,7 +675,7 @@ export default {
       animation: rotation 20s infinite linear;
     }
 
-    .loader-text {
+    #loader-text {
       position: absolute;
       font-size: 30px;
       font-variant-numeric: tabular-nums;
@@ -686,7 +728,6 @@ export default {
     overflow: hidden;
     cursor: pointer;
     text-transform: uppercase;
-    color: transparent;
     -webkit-text-stroke-width: 1.6px;
 
     .list {
@@ -701,6 +742,7 @@ export default {
         padding-left: 20px;
 
         span {
+          color: transparent;
           transition: 0.4s ease-in-out;
 
           &:hover {
@@ -725,7 +767,7 @@ export default {
     .marquee .list {
       li span {
         &:hover {
-          color: $main-color;
+          color: inherit
         }
       }
     }
@@ -796,6 +838,18 @@ export default {
       -webkit-text-stroke-color: black;
     }
 
+    .text-with-link {
+      -webkit-text-stroke-color: inherit;
+
+      span {
+        -webkit-text-stroke-color: black;
+      }
+
+      a {
+        -webkit-text-stroke-color: inherit;
+      }
+    }
+
     .projects {
       margin-top: 50px;
       margin-bottom: 60px;
@@ -815,7 +869,7 @@ export default {
         }
 
         &:hover {
-          color: $main-color;
+          color: inherit;
           -webkit-text-stroke-width: 1.2px;
           transition: 0.4s ease-in-out;
         }
@@ -835,10 +889,10 @@ export default {
       width: 100%;
 
       a {
-        -webkit-text-stroke-color: $main-color;
+        -webkit-text-stroke-color: inherit;
 
         &:hover {
-          color: $main-color;
+          color: inherit;
         }
       }
     }
@@ -849,7 +903,7 @@ export default {
       .list {
         li span {
           &:hover {
-            color: $main-color;
+            color: inherit;
           }
         }
       }
@@ -870,10 +924,10 @@ export default {
     // margin-top: 13.691vw;
 
     a {
-      -webkit-text-stroke-color: $main-color;
+      -webkit-text-stroke-color: inherit;
 
       &:hover {
-        color: $main-color;
+        color: inherit;
       }
     }
   }
