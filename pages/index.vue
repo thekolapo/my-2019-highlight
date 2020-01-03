@@ -11,7 +11,7 @@
       </div>
       <div class="img-container">
         <div id="loader-text">
-          {{ loaderCounter }}%
+          0
         </div>
         <img src="@/assets/images/loader.png" alt="loader-img">
       </div>
@@ -395,7 +395,8 @@ export default {
       isMobileBrowser: false,
       loadingAssets: true,
       loaderCounter: 0,
-      scrollingDown: true
+      scrollingDown: true,
+      windowWidth: null
     }
   },
   mounted () {
@@ -410,12 +411,18 @@ export default {
 
     this.isMobileBrowser = this.checkIfMobileBrowser();
 
-    window.addEventListener('resize', function () {
-      // this.infinite.kill;
+    this.windowWidth = window.innerWidth;
+
+    window.addEventListener('resize', () => {
+      let currentWidth = window.innerWidth;
+      if(currentWidth != this.windowWidth) {
+        this.windowWidth = currentWidth;
+        window.location.reload();
+      }
     });
 
     var lastScrollTop = 0;
-    window.addEventListener("scroll", function(){
+    window.addEventListener("scroll", () => {
       var st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > lastScrollTop){
         that.scrollingDown = true;
@@ -457,11 +464,12 @@ export default {
 
       imagesLoaded(images).on(
         'progress', function( instance, image ) {
-          that.loaderCounter += 5;
-          // document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
+          that.loaderCounter += 5 
+          document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
 
           if(that.loaderCounter == 90) {
             that.loaderCounter = 100;
+            document.getElementById('loader-text').innerHTML = 100;
           }
 
           if(that.loaderCounter == 100) {
@@ -617,6 +625,12 @@ export default {
             }
             
             this.changeColor('#5660B7', '#FFD9D8');
+            break
+          
+          case 'section__review':
+            if(!this.scrollingDown){
+              this.changeColor('#E79292', '#DCF3E8');
+            }
             break;
 
           // case 'section__extra':
