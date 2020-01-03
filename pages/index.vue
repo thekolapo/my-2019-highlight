@@ -473,6 +473,7 @@ export default {
           }
 
           if(that.loaderCounter == 100) {
+            window.scrollTo(0, 0);
             new TimelineLite().to(
               '.loader', 0.66, 
               {
