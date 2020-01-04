@@ -262,12 +262,20 @@
       class="section"
     >
       <div class="content">
-        <div class="text">
-          I won't lie, 2019 has been a rollercoaster of highs and lows.
-          While I achieved some of my goals, I didn't achieve some others.
-          Sometimes I struggled, other times, I felt like a god.
-          I also got less scared of the future, met my sugar mama - Tomiwa and
-          did a lot of faaji this year because life is too short and na only one life dey.
+        <div class="text text-with-link">
+          <span>
+            I won't lie, 2019 has been a rollercoaster of highs and lows.
+            While I achieved some of my goals, I didn't achieve some others.
+            Sometimes I struggled, other times, I felt like a god.
+            I also got less scared of the future, met my sugar mama -
+          </span>
+          <a href="https://twitter.com/fauxxbella" target="blank">
+            Tomiwa
+          </a>
+          <span>
+            and did a lot of faaji this year
+            because life is too short and na only one life dey.
+          </span>
         </div>
         <div class="pictures-group">
           <div>
@@ -339,8 +347,8 @@
             Lara
             <i class="fas fa-heart" />
             <i class="fas fa-heart" />
-          </a>,
-          <a href="https://twitter.com/fauxxbella" target="blank">
+          </a>
+          <!-- <a href="https://twitter.com/fauxxbella" target="blank">
             Tomiwa
           </a>,
           <a href="https://twitter.com/Gbemss_" target="blank">
@@ -348,7 +356,7 @@
           </a>,
           <a href="https://twitter.com/onykchi" target="blank">
             Kachi
-          </a>
+          </a> -->
           <span>
             & everyone that made 2019 a good year,
             thanks for being amazing people.
@@ -745,6 +753,7 @@ export default {
     transition: 0.2s ease-in-out;
 
     &:hover {
+      color: inherit;
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: black !important;
     }
