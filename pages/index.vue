@@ -73,15 +73,16 @@
           some I can publicly talk about are:
         </div>
         <div class="projects outlined-text">
-          <a href="https://early-access.gomoney.global" target="blank">
-            - Gomoney early access site
+          <a href="https://thekolapo.com" target="blank">
+            - My portfolio (version 2)
           </a>
+          <br>
           <a href="https://blog.gomoney.global" target="blank">
             - Gomoney blog
           </a>
           <br>
-          <a href="https://thekolapo.com" target="blank">
-            - My portfolio redesign
+          <a href="https://early-access.gomoney.global" target="blank">
+            - Gomoney early access site
           </a>
         </div>
         <div class="text">
@@ -101,8 +102,8 @@
       </div>
       <div class="content">
         <div class="text">
-          I didn't read as many books as I did in 2018.
-          Two nice books I read this year are Ask The Dust by John Fante
+          Although I didn't read as many books as I did in 2018,
+          two nice books I read this year are Ask The Dust by John Fante
           & Design Is Storytelling by Ellen Lupton.
         </div>
       </div>
@@ -244,13 +245,13 @@
         </div>
         <div class="text text-with-link">
           <span>
-            You can also check my
+            You can also check
           </span>
           <a href="https://vsco.co/thekolapo" target="blank">
             VSCO
           </a>
           <span>
-            to see a lot more pictures I've taken.
+            to see more pictures I've taken.
           </span>
         </div>
       </div>
@@ -262,12 +263,11 @@
     >
       <div class="content">
         <div class="text">
-          I won't lie 2019 has been a rollercoaster of highs and lows.
-          I achieved some of my goals, didn't achieve some.
+          I won't lie, 2019 has been a rollercoaster of highs and lows.
+          While I achieved some of my goals, I didn't achieve some others.
           Sometimes I struggled, other times, I felt like a god.
-          I got less scared of the future, met my sugar mami; Tomiwa.
-          Did a lot of faaji because life is too short & na only one life dey.
-          Took really mad shots too.
+          I also got less scared of the future, met my sugar mama - Tomiwa and
+          did a lot of faaji this year because life is too short and na only one life dey.
         </div>
         <div class="pictures-group">
           <div>
@@ -350,8 +350,8 @@
             Kachi
           </a>
           <span>
-            & everyone that was part of my 2019,
-            thanks for making it a good year.
+            & everyone that made 2019 a good year,
+            thanks for being amazing people.
             To 2020 - A new year to make cool $hit
             & sweet memories.
           </span>
@@ -529,7 +529,7 @@ export default {
       clonedList.addClass('cloned').appendTo(marquee);
 
       const infinite = new TimelineMax({ repeat: -1, paused: true });
-      const time = 15;
+      const time = 20;
 
       infinite
         .fromTo(
@@ -728,7 +728,7 @@ export default {
 
   a,
   .header {
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 1.8px;
   }
 
   .header {
