@@ -5,11 +5,38 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Kolapo Oni - Year In Review (2019)',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        name: 'keywords',
+        content: 'Kolapo Oni, Kolapo, Oni, kolapo year in review'
+      },
+      {
+        property: 'og:title',
+        content: 'Kolapo Oni - Year In Review (2019)'
+      },
+      {
+        property: 'og:url',
+        content: 'https://2019.thekolapo.com'
+      },
+      {
+        property: 'og:image',
+        content: 'https://res.cloudinary.com/daitiebum/image/upload/v1578150660/kolapo_2019_highlight.png'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Highlights and Happenings of 2019'
+      }
     ],
     script: [
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js' },
