@@ -118,7 +118,7 @@
       </div>
       <div class="content">
         <div class="text">
-          I visited four countries this year &
+          I visited four countries this year and
           took a lot of great pictures.
         </div>
       </div>
@@ -265,7 +265,7 @@
         <div class="text text-with-link">
           <span>
             I won't lie, 2019 has been a rollercoaster of highs and lows.
-            While I achieved some of my goals, I didn't achieve some others.
+            While I achieved some of my goals, I didn't achieve some.
             Sometimes I struggled, other times, I felt like a god.
             I also got less scared of the future, met my sugar mama -
           </span>
