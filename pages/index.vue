@@ -237,7 +237,7 @@
             </div>
           </div>
           <div>
-            <img src="@/assets/images/cup.jpg" alt="kolapo">
+            <img src="@/assets/images/cup.jpg" alt="cup">
             <div class="desc">
               Cup | Casablanca 🇲🇦
             </div>
@@ -283,9 +283,9 @@
             </div>
           </div>
           <div>
-            <img src="@/assets/images/anike.jpg" alt="Anike">
+            <img src="@/assets/images/iniye.jpg" alt="iniye">
             <div class="desc">
-              Anike
+              Iniye
             </div>
           </div>
           <div>
@@ -301,9 +301,9 @@
             </div>
           </div>
           <div>
-            <img src="@/assets/images/iniye.jpg" alt="iniye">
+            <img src="@/assets/images/wall-of-pictures.jpg" alt="wall-of-pictures">
             <div class="desc">
-              Iniye
+              Wall of pictures | Barcelona 🇪🇸
             </div>
           </div>
           <div>
@@ -321,7 +321,7 @@
           <div>
             <img src="@/assets/images/gelato.jpg" alt="light">
             <div class="desc">
-              Gelato | Rome 🇮🇹
+              Gelato 🍦 | Rome 🇮🇹
             </div>
           </div>
         </div>
@@ -450,7 +450,7 @@ export default {
     preloadImages() {
       let images = []
       let imgNames = [
-        'anike.jpg',
+        'wall-of-pictures.jpg',
         'boat-2.jpg',
         'building-rome.jpg',
         'chisom.jpg',
