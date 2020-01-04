@@ -11,7 +11,7 @@
       </div>
       <div class="img-container">
         <div id="loader-text">
-          0
+          {{ loaderCounter }}%
         </div>
         <img src="@/assets/images/loader.png" alt="loader-img">
       </div>
@@ -480,11 +480,11 @@ export default {
       imagesLoaded(images).on(
         'progress', function( instance, image ) {
           that.loaderCounter += 5 
-          document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
+          // document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
 
           if(that.loaderCounter == 90) {
             that.loaderCounter = 100;
-            document.getElementById('loader-text').innerHTML = 100;
+            // document.getElementById('loader-text').innerHTML = 100;
           }
 
           if(that.loaderCounter == 100) {
