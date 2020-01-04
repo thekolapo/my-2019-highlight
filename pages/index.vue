@@ -429,9 +429,10 @@ export default {
     
     window.addEventListener('resize', () => {
       let currentWidth = window.innerWidth;
+      
       if(currentWidth != this.windowWidth) {
         this.windowWidth = currentWidth;
-        window.location.reload();
+        setTimeout(() => window.location.reload());
       }
     });
 
@@ -507,7 +508,7 @@ export default {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         return true;
       }
-
+      
       return false;
     },
     createMarqueeEffect (textGroup, forwardDirection) {
