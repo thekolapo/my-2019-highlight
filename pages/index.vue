@@ -6,7 +6,7 @@
     >
       <div class="summary">
         With the hours, days and months gone by,
-        I take a moment to refelct on the highlights
+        I take a moment to reflect on the highlights
         and happenings of 2019.
       </div>
       <div class="img-container">
