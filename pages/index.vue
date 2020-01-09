@@ -81,6 +81,10 @@
             - Gomoney blog
           </a>
           <br>
+          <a href="https://pay.gomoney.global/?id=08124390729" target="blank">
+            - Gomoney payment portal
+          </a>
+          <br>
           <a href="https://early-access.gomoney.global" target="blank">
             - Gomoney early access site
           </a>
