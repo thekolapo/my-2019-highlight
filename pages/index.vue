@@ -379,7 +379,7 @@
         <div class="text text-with-link">
           <span>Made in Lagos, Nigeria by</span>
           <a href="https://twitter.com/kolapo_" target="blank">
-            the cool kid Kp
+            the creative kid Kp
           </a>
           <span>🤘🏾.</span>
         </div>
