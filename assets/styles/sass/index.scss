@@ -1,60 +1,3 @@
-.loader {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 10;
-  background-color: #e4b0a0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 100px;
-  color: #15557c;
-  color: #15777c;
-  -webkit-text-stroke-width: 0.2px;
-  -webkit-text-stroke-color: black;
-
-  .summary {
-    font-size: 30px;
-    text-align: center;
-    width: 40%;
-    line-height: 40px;
-    margin-bottom: 70px;
-  }
-
-  .img-container {
-    width: 200px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 100%;
-      height: auto;
-      object-position: center;
-      margin: 0 auto;
-      object-fit: cover;
-      animation: rotation 20s infinite linear;
-    }
-
-    #loader-text {
-      position: absolute;
-      font-size: 30px;
-      font-variant-numeric: tabular-nums;
-    }
-  }
-
-  @keyframes rotation {
-		from {
-				-webkit-transform: rotate(0deg);
-		}
-		to {
-				-webkit-transform: rotate(359deg);
-    }
-  }
-}
-
 .container {
   // font-size: 80px;
   font-size: 4.762vw;
@@ -301,24 +244,8 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
-  .container {
-    .loader {
-      .summary {
-        width: 50%;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .container {
-    .loader {
-      .summary {
-        width: 60%;
-      }
-    }
-
     .section {
       .content .pictures-group {
         padding-left: 20px;
@@ -345,12 +272,6 @@
 
 @media screen and (max-width: 812px) {
   .container {
-    .loader {
-      .summary {
-        width: 80%;
-      }
-    }
-
     .section {
       .content .pictures-group {
         padding-left: 20px;
@@ -413,16 +334,6 @@
 
 @media screen and (max-width: 620px) {
   .container {
-    .loader {
-      .summary {
-        width: 90%;
-      }
-
-      .img-container {
-        width: 170px;
-      }
-    }
-
     .section {
       .content .pictures-group {
         justify-content: center;
@@ -448,19 +359,6 @@
 @media screen and (max-width: 480px) {
   .container {
     font-size: 30px;
-
-    .loader {
-      .summary {
-        width: 96%;
-        font-size: 24px;
-        margin-bottom: 45px;
-        line-height: 36px;
-      }
-
-      .img-container {
-        width: 160px;
-      }
-    }
 
     a,
     .marquee,
@@ -529,19 +427,7 @@
 @media screen and (max-width: 360px) {
   .container {
     font-size: 29px;
-
-    .loader {
-      .summary {
-        font-size: 20px;
-        margin-bottom: 40px;
-        line-height: 32px;
-        margin-top: -20px;
-      }
-
-      .img-container {
-        width: 130px;
-      }
-    }
+    
     .section {
       .content .pictures-group {
         & > div {
