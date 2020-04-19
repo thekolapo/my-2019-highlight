@@ -389,8 +389,7 @@
 </template>
 
 <script>
-/* eslint semi: "error" */
-/* eslint-disable */
+/* eslint-disable no-undef */
 import $ from 'jquery'
 import Vue from 'vue'
 import VueObserveVisibility from 'vue-observe-visibility'
@@ -412,13 +411,13 @@ export default {
     }
   },
   mounted () {
-    that = this;
-    this.preloadImages();
-    let marquees = $('.marquee');
+    that = this
+    this.preloadImages()
+    const marquees = $('.marquee')
     const forwardDirection = [false, true, false, false, true, false, true]
 
     for (let index = 0; index < marquees.length; index++) {
-      this.createMarqueeEffect(marquees[index], forwardDirection[index]);
+      this.createMarqueeEffect(marquees[index], forwardDirection[index])
     }
 
     // let isMobileBrowser = this.checkIfMobileBrowser();
@@ -431,38 +430,38 @@ export default {
     //   this.showFlagEmoji = false;
     // }
 
-     $(document).ready(function(){
+    $(document).ready(function () {
       setTimeout(() => {
-        that.changeColor('#15777c', '#E4B0A0');
-      }, 100);
-    });
-    
-    this.windowWidth = window.innerWidth;
-    
-    window.addEventListener('resize', () => {
-      let currentWidth = window.innerWidth;
-      
-      if(currentWidth != this.windowWidth) {
-        this.windowWidth = currentWidth;
-        setTimeout(() => window.location.reload());
-      }
-    });
+        that.changeColor('#15777c', '#E4B0A0')
+      }, 100)
+    })
 
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', () => {
-      var st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > lastScrollTop){
-        that.scrollingDown = true;
-      } else {
-        that.scrollingDown = false;
+    this.windowWidth = window.innerWidth
+
+    window.addEventListener('resize', () => {
+      const currentWidth = window.innerWidth
+
+      if (currentWidth !== this.windowWidth) {
+        this.windowWidth = currentWidth
+        setTimeout(() => window.location.reload())
       }
-      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    }, false);
+    })
+
+    let lastScrollTop = 0
+    window.addEventListener('scroll', () => {
+      const st = window.pageYOffset || document.documentElement.scrollTop
+      if (st > lastScrollTop) {
+        that.scrollingDown = true
+      } else {
+        that.scrollingDown = false
+      }
+      lastScrollTop = st <= 0 ? 0 : st // For Mobile or negative scrolling
+    }, false)
   },
   methods: {
-    preloadImages() {
-      let images = []
-      let imgNames = [
+    preloadImages () {
+      const images = []
+      const imgNames = [
         'wall-of-pictures.jpg',
         'boat-2.jpg',
         'building-rome.jpg',
@@ -480,69 +479,69 @@ export default {
         'lara.jpg',
         'light.jpg',
         'tomiwa.jpg',
-        'vintage-car.jpg',
+        'vintage-car.jpg'
       ]
 
-      imgNames.forEach(imgSrc => {
-        let img = new Image();
-        img.src = require(`@/assets/images/${imgSrc}`);
+      imgNames.forEach((imgSrc) => {
+        const img = new Image()
+        img.src = require(`@/assets/images/${imgSrc}`)
         images.push(img)
-      });
+      })
 
       imagesLoaded(images).on(
-        'progress', function( instance, image ) {
-          that.loaderCounter += 5 
+        'progress', function (instance, image) {
+          that.loaderCounter += 5
           // document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
 
-          if(that.loaderCounter == 90) {
-            that.loaderCounter = 100;
+          if (that.loaderCounter === 90) {
+            that.loaderCounter = 100
             // document.getElementById('loader-text').innerHTML = 100;
           }
 
-          if(that.loaderCounter == 100) {
-            window.scrollTo(0, 0);
+          if (that.loaderCounter === 100) {
+            window.scrollTo(0, 0)
             new TimelineLite().to(
-              '.loader', 0.66, 
+              '.loader', 0.66,
               {
-                opacity: 0, 
+                opacity: 0,
                 ease: Power2.easeIn,
                 delay: 1,
-                onComplete:function(){
-                  that.loadingAssets = false;
+                onComplete () {
+                  that.loadingAssets = false
                 }
               }
             )
           }
         }
-      );
+      )
     },
-    checkIfMobileBrowser() {
+    checkIfMobileBrowser () {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        return true;
+        return true
       }
-      
-      return false;
+
+      return false
     },
     createMarqueeEffect (textGroup, forwardDirection) {
-      const marquee = $(textGroup);
-      const list = marquee.find('ul.list');
-      const clonedList = list.clone();
-      let listWidth = 5;
+      const marquee = $(textGroup)
+      const list = marquee.find('ul.list')
+      const clonedList = list.clone()
+      let listWidth = 5
 
-      list.find('li').each (function (i) {
-        listWidth += $(this, i).outerWidth(true);
-      });
+      list.find('li').each(function (i) {
+        listWidth += $(this, i).outerWidth(true)
+      })
 
       // const endPos = $tickerWrapper.width() - listWidth;
 
       list.add(clonedList).css({
         width: listWidth + 'px'
-      });
+      })
 
-      clonedList.addClass('cloned').appendTo(marquee);
+      clonedList.addClass('cloned').appendTo(marquee)
 
-      const infinite = new TimelineMax({ repeat: -1, paused: true });
-      const time = 20;
+      const infinite = new TimelineMax({ repeat: -1, paused: true })
+      const time = 20
 
       infinite
         .fromTo(
@@ -559,11 +558,11 @@ export default {
           { force3D: true, x: 0, ease: Linear.easeNone },
           0
         )
-        .set(list, { force3D: true, rotation: 0.01, x: forwardDirection? -listWidth : listWidth })
+        .set(list, { force3D: true, rotation: 0.01, x: forwardDirection ? -listWidth : listWidth })
         .to(
           clonedList,
           time,
-          { force3D: true, rotation: 0.01, x: !forwardDirection? -listWidth : listWidth, ease: Linear.easeNone },
+          { force3D: true, rotation: 0.01, x: !forwardDirection ? -listWidth : listWidth, ease: Linear.easeNone },
           time
         )
         .to(
@@ -574,17 +573,17 @@ export default {
         )
         // .progress(1)
         // .progress(0)
-        .play();
+        .play()
 
       marquee
-        .on ('mouseenter', function() {
-          infinite.pause();
+        .on('mouseenter', function () {
+          infinite.pause()
         })
-        .on ('mouseleave', function() {
-          infinite.play();
-        });
+        .on('mouseleave', function () {
+          infinite.play()
+        })
     },
-    changeColor(textColor, bgColor) {
+    changeColor (textColor, bgColor) {
       $('body').css({
         'color': textColor,
         '-webkit-text-stroke-color': textColor,
@@ -595,85 +594,85 @@ export default {
       if (isVisible) {
         switch (entry.target.id) {
           case 'section__hero':
-            this.changeColor('#15777c', '#E4B0A0');
-            break;
+            this.changeColor('#15777c', '#E4B0A0')
+            break
 
           case 'section__work':
-            this.changeColor('#15557c', '#E4B0A0');
-            break;
+            this.changeColor('#15557c', '#E4B0A0')
+            break
 
           case 'section__reading':
-            this.changeColor('#5660B7', '#FFD9D8');
-            break;
+            this.changeColor('#5660B7', '#FFD9D8')
+            break
 
           case 'section__travel':
-            this.changeColor('#E79292', '#DCF3E8');
-            break;
+            this.changeColor('#E79292', '#DCF3E8')
+            break
 
           case 'section__review':
-            this.changeColor('#15557c', '#E4B0A0');
-            break;
+            this.changeColor('#15557c', '#E4B0A0')
+            break
 
-          // case 'section__footer':
-          // case 'section__extra':
-          //   this.changeColor('#15557c', '#E4B0A0');
-          //   break;
+            // case 'section__footer':
+            // case 'section__extra':
+            //   this.changeColor('#15557c', '#E4B0A0');
+            //   break;
 
           default:
-            break;
+            break
         }
-      }else if (!isVisible) {
+      } else if (!isVisible) {
         switch (entry.target.id) {
           case 'section__hero':
-            this.changeColor('#15557c', '#E4B0A0');
-            break;
+            this.changeColor('#15557c', '#E4B0A0')
+            break
 
           case 'section__work':
-            if(this.scrollingDown){
-              this.changeColor('#5660B7', '#FFD9D8');
-              return;
+            if (this.scrollingDown) {
+              this.changeColor('#5660B7', '#FFD9D8')
+              return
             }
 
-            this.changeColor('#15777c', '#E4B0A0');
-            break;
-            
+            this.changeColor('#15777c', '#E4B0A0')
+            break
+
           case 'section__reading':
-            if(this.scrollingDown) {
-              this.changeColor('#E79292', '#DCF3E8');
-              return;
+            if (this.scrollingDown) {
+              this.changeColor('#E79292', '#DCF3E8')
+              return
             }
-            
-            this.changeColor('#15557c', '#E4B0A0');
-            break;
+
+            this.changeColor('#15557c', '#E4B0A0')
+            break
 
           case 'section__travel':
-            if(this.scrollingDown){
-              this.changeColor('#15557c', '#E4B0A0');
-              return;
+            if (this.scrollingDown) {
+              this.changeColor('#15557c', '#E4B0A0')
+              return
             }
-            
-            this.changeColor('#5660B7', '#FFD9D8');
-            break
-          
-          case 'section__review':
-            if(!this.scrollingDown){
-              this.changeColor('#E79292', '#DCF3E8');
-            }
-            break;
 
-          // case 'section__extra':
-          //   if(!this.scrollingDown) {
-          //     this.changeColor('#15557c', '#E4B0A0');
-          //   }
-          //   break;
-            
+            this.changeColor('#5660B7', '#FFD9D8')
+            break
+
+          case 'section__review':
+            if (!this.scrollingDown) {
+              this.changeColor('#E79292', '#DCF3E8')
+            }
+            break
+
+            // case 'section__extra':
+            //   if(!this.scrollingDown) {
+            //     this.changeColor('#15557c', '#E4B0A0');
+            //   }
+            //   break;
+
           default:
-            break;
+            break
         }
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
