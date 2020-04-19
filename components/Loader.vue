@@ -18,10 +18,7 @@
 </template>
 
 <script>
-/* eslint semi: "error" */
-/* eslint-disable */
-import $ from 'jquery'
-import Vue from 'vue'
+/* eslint-disable no-undef */
 
 let that = null
 
@@ -29,17 +26,17 @@ export default {
   data () {
     return {
       loadingAssets: true,
-      loaderCounter: 0,
+      loaderCounter: 0
     }
   },
   mounted () {
-    that = this;
-    this.preloadImages();
+    that = this
+    this.preloadImages()
   },
   methods: {
-    preloadImages() {
-      let images = []
-      let imgNames = [
+    preloadImages () {
+      const images = []
+      const imgNames = [
         'wall-of-pictures.jpg',
         'boat-2.jpg',
         'building-rome.jpg',
@@ -57,44 +54,44 @@ export default {
         'lara.jpg',
         'light.jpg',
         'tomiwa.jpg',
-        'vintage-car.jpg',
+        'vintage-car.jpg'
       ]
 
-      imgNames.forEach(imgSrc => {
-        let img = new Image();
-        img.src = require(`@/assets/images/${imgSrc}`);
+      imgNames.forEach((imgSrc) => {
+        const img = new Image()
+        img.src = require(`@/assets/images/${imgSrc}`)
         images.push(img)
-      });
+      })
 
       imagesLoaded(images).on(
-        'progress', function( instance, image ) {
-          that.loaderCounter += 5 
+        'progress', function (instance, image) {
+          that.loaderCounter += 5
           // document.getElementById('loader-text').innerHTML = instance.progressedCount * 5;
 
-          if(that.loaderCounter == 90) {
-            that.loaderCounter = 100;
+          if (that.loaderCounter === 90) {
+            that.loaderCounter = 100
             // document.getElementById('loader-text').innerHTML = 100;
           }
 
-          if(that.loaderCounter == 100) {
-            window.scrollTo(0, 0);
+          if (that.loaderCounter === 100) {
+            window.scrollTo(0, 0)
             new TimelineLite().to(
-              '.loader', 0.66, 
+              '.loader', 0.66,
               {
-                opacity: 0, 
+                opacity: 0,
                 ease: Power2.easeIn,
                 delay: 1,
-                onComplete:function(){
-                  that.loadingAssets = false;
+                onComplete () {
+                  that.loadingAssets = false
                 }
               }
             )
           }
         }
-      );
+      )
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
