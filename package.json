@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "acorn": "^7.1.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.appear": "^1.0.1",
     "kind-of": "^6.0.3",
     "minimist": "^1.2.2",
